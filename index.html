@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es-Mx">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>El Universal | Mapa del Crimen Organizado</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+<meta name="robot" content="index,follow" />
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- keywords Agregar descripcion -->
+<meta name="keywords" content="Mapa del Crimen Organizado, Gráfico animado, Especial interactivo" />
+<meta name="author" content="El Universal, México">
+<meta name="description" content="EL UNIVERSAL, periódico líder en noticias de México y el mundo minuto por minuto. Toda la información en un solo sitio">
+<meta name="description" content="Sitio líder de noticias minuto x minuto de México y el mundo, con información sobre política, ciudad, videos, interactividad, opinión, blogs" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- Open Graph data para Facebook y Google -->
+<meta property="og:title" content="Mapa del Crimen Organizado"/>
+<!-- El título debe ser conciso y dejará de verse en el caracter #95. -->
+<meta property="og:url" content="https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/" />
+<meta property="og:type" content="website"/>
+<!-- El texto de descripción se dejará de verse en el caracter #250. -->
+<meta property="og:description" content="EL UNIVERSAL revisó más de 50 reportes de inteligencia realizados por la Sedena en donde informan el acomodo de los cárteles o bandas criminales en el país. El análisis de estos documentos revela que en México existen más de 80 grupos del crimen organizado y al rededor de 16 bandas criminales ubicadas principalmente en Hidalgo, además de una expansión notable del Cártel de Jalisco Nueva Generación en los últimos dos años." />
+<meta property="og:image" content="https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/img/card.jpg" />
+<meta property="og:image:secure_url" content="https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/img/card2.jpg"/>
+<meta property="og:image:type" content="img/jpeg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="741"/>
+<meta property="og:image:alt" content="El camino de los migrantes venezolanos"/>
+<!-- La tarjeta debe tener al menos 280 px de ancho y al menos 150 px de altura. La imagen debe tener menos de 1 MB de tamaño -->
+<meta property="fb:app_id" content="163316950407128">
+
+<!--Twitter Card-->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Mapa del Crimen Organizado" />
+<!-- El título debe ser conciso y dejará de verse en el caracter #70. -->
+<meta name="twitter:description" content="EL UNIVERSAL revisó más de 50 reportes de inteligencia realizados por la Sedena en donde informan el acomodo de los cárteles o bandas criminales en el país. El análisis de estos documentos revela que en México existen más de 80 grupos del crimen organizado y al rededor de 16 bandas criminales ubicadas principalmente en Hidalgo, además de una expansión notable del Cártel de Jalisco Nueva Generación en los últimos dos años." />
+<!-- El texto de descripción se dejará de verse en el caracter #200. -->
+<meta name="twitter:url" content="https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/" />
+<meta name="twitter:image" content="https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/img/card.jpg" />
+<!-- La tarjeta debe tener al menos 280 px de ancho y al menos 150 px de altura. La imagen debe tener menos de 1 MB de tamaño -->
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+<link rel="manifest" href="img/favicons/manifest.json">
+<link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#005383">
+
+<!-- Links de packages para mapa-->
+<!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />-->
+<!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   		crossorigin=""/>-->		
+<link rel="stylesheet" type="text/css" href="mapa.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="Leaflet-MiniMap-master/dist/Control.MiniMap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<link rel="stylesheet" href="leaflet-search-master\src\leaflet-search.css"/>  
+<link rel="stylesheet" href="css/leaflet.css" />
+	
+	<!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-K252WB7');</script>
+	<!-- End Google Tag Manager -->
+	<!-- Comienza contador 2021 - Parte 1 -->
+<script>        
+function readCookie_uni2(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+       var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+return null;
+}
+
+    var myCookie_uni2 = readCookie_uni2('eluniversaluid');
+
+    window.digitalData = {
+        pageInstanceID: '3031', /*Numero de Grafico*/
+page:{
+            pageInfo:{
+               
+pageID: '3031', /*Numero de Grafico*/
+                pageName: '/2023/mapa-crimen-organizado', /*Liga de Grafico*/
+                eluniversaluid: myCookie_uni2,
+                destinationURL: '/2023/mapa-crimen-organizado', /*Liga de Grafico*/
+                author: 'DisenoWeb', /*Autor del Grafico*/
+                issueDate: '2023-01-28 00:49', //fecha de publicacion
+                effectiveDate: '2023-01-28 00:52', // feha de modificacion
+                    publisher: 'Nacion', /*Autor de la información*/
+                    tags: ['Mapa Crimen Organizado','Gráfico animado','Especial interactivo'], /*Agregar minimo tres tags*/
+                },
+                category:{
+                    primaryCategory: 'Nacion', /*Sección*/
+                    subCategory1: '',
+                    pageType: 'graficos'
+                },
+                attributes:{
+                    country: 'MX',
+                    language: 'es-mx',
+                    server: 'eluniversalmx_prod'
+                }
+        }        
+    };
+</script>
+<!-- Termina contador 2019 -->
+	
+</head>
+
+<body onload="myFunction()">	
+	
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K252WB7"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<!-- Inicia comScore Certifica code 1.1302.13-->
+<div style="display:none;"> 
+  <!-- Begin Digital Analytix Tag  1.1302.13 --> 
+  <script type="text/javascript">
+        function udm_(e){var t="comScore=",n=document,r=n.cookie,i="",s="indexOf",o="substring",u="length",a=2048,f,l="&ns_",c="&",h,p,d,v,m=window,g=m.encodeURIComponent||escape;if(r[s](t)+1)for(d=0,p=r.split(";"),v=p[u];d<v;d++)h=p[d][s](t),h+1&&(i=c+
+unescape(p[d][o](h+t[u])));e+=l+"_t="+ +(new Date)+l+"c="+(n.characterSet||n.defaultCharset||"")+"&c8="+g(n.title)+i+"&c7="+g(n.URL)+"&c9="+g(n.referrer),e[u]>a&&e[s](c)>0&&(f=e[o](0,a-8).lastIndexOf(c),e=(e[o](0,f)+l+"cut="+g(e[o](f+1)))[o](0,a)),n.images?(h=new Image,m.ns_p||(ns_p=h),h.src=e):n.write("<","p","><",'img src="',e,'" height="1" width="1" alt="*"',"><","/p",">")};udm_('https://sb.scorecardresearch.com /b?c1=2&c2=6906641&ns_site=el-universal&name=eluniversal.interactivos.2023/mapa-crimen-organizado');
+
+    function uid_call(a, b){ window.b_ui_event = window.c_ui_event != null ? window.c_ui_event:"",window.c_ui_event = a; var ui_pixel_url = 'https://sb.scorecardresearch.com/p?c1=2&c2=6906641&ns_site=el-universal&name='+a+'&ns_type=hidden&type=hidden&ns_ui_type='+b; var b="comScore=",c=document,d=c.cookie,e="",f="indexOf",g="substring",h="length",i=2048,j,k="&ns_",l="&",m,n,o,p,q=window,r=q.encodeURIComponent||escape;if(d[f](b)+1)for(o=0,n=d.split(";"),p=n[h];o<p;o++)m=n[o][f](b),m+1&&(e=l+unescape(n[o][g](m+b[h])));ui_pixel_url+=k+"_t="+ +(new Date)+k+"c="+(c.characterSet||c.defaultCharset||"")+"&c8="+r(c.title)+e+"&c7="+r(c.URL)+"&c9="+r(c.referrer)+"&b_ui_event="+b_ui_event+"&c_ui_event="+c_ui_event,ui_pixel_url[h]>i&&ui_pixel_url[f](l)>0&&(j=ui_pixel_url[g](0,i-8).lastIndexOf(l),ui_pixel_url=(ui_pixel_url[g](0,j)+k+"cut="+r(ui_pixel_url[g](j+1)))[g](0,i)),c.images?(m=new Image,q.ns_p||(ns_p=m),m.src=ui_pixel_url):c.write("<p><img src='",ui_pixel_url,"' height='1' width='1' alt='*'></p>");
+        console.log("llamda uid call a: "+a+"\nb:"+b+"\nc: "+c);
+      }
+    </script>
+  <noscript>
+  <p><img src="https://sb.scorecardresearch.com/p?c1=2&amp;c2=6906641&amp;ns_site=el-universal&amp;name=eluniversal.interactivos.2023/mapa-crimen-organizado" height="1" width="1" alt="*"></p>
+  </noscript>
+  <!-- Fin comScore Certifica--> 
+  
+  <!--Código de Google Analytics VERSIÓN ANTERIOR A 360--> 
+  <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+  <script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5566785-1");
+pageTracker._trackPageview();
+</script> 
+  </div>
+	<!--Fin de Google Analytics--> 
+	
+	
+	<header>
+	<nav>
+		<h1><a href="https://www.eluniversal.com.mx/"><img src="img/logo-el-universal.svg" alt="EL Universal" class="img-responsive logo-top"></a>
+		</h1>
+		<ul>
+		  <li><a href="#Inicio">Inicio</a></li>
+		  <li><a href="#Mapa">Mapa</a></li>
+		  <li><a href="#Analisis">Análisis</a></li>
+		  <li><a href="#Metodologia">Metodología</a></li>
+		</ul>
+		<div class="hide">
+		  <i class="fa fa-bars" aria-hidden="true"></i> MENÚ
+	  </div>
+	</nav>
+	  	</header>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+	<script>
+			$(".hide").on('click', function() {
+			  $("nav ul").toggle('slow');
+			})
+	</script>
+
+<!-- Sección 1: Inicio -->
+<section id="Inicio">
+	<div class="content container intro">
+		<h1> México, el país de los cárteles</h1>
+		<p> <strong>EL UNIVERSAL</strong> revisó más de 50 reportes de inteligencia realizados por la Sedena que muestran el acomodo de los cárteles o bandas criminales en el país. El análisis de estos documentos revela que en México existen más de 80 grupos del crimen organizado y alrededor de 16 bandas criminales, estas últimas ubicadas principalmente en Hidalgo. Además es notable la expansión del Cártel de Jalisco Nueva Generación en los últimos años.
+		</p>
+		<a href="#Mapa"><button type="button" class="btns"> Continuar </button></a>
+	</div>
+	<!-- Esto es un comentario-->
+	<div class="content">
+		<div class = "video-content">
+		<!--<video src = "Red - 12716.mp4" autoplay muted loop></video>-->
+	</div>
+	</div>
+</section>
+
+<!-- Sección 2: Mapa -->
+	<div id="contenido" class="bg-black">. </div>
+<section id="Mapa" class="bg-black">
+	<div class="container">
+<h3 class="cabeza-seccion">Mapa del crimen organizado</h3>
+<p>   
+   <br/>
+     "Seleccione entidad federativa" te posicionará en el estado de tu preferencia. <br/>
+   <br/>
+     "Selecciona Organización Delictiva" mostrará la presencia de cárteles en 4 categorías: <br/>
+     Sin registro (color: rosa), Más de 5 Cárteles (color: gris claro), 2 a 4 Cárteles (color: gris oscuro) y el nombre del cártel presente en el municipio. <br/>
+     Nota: Solo se puede seleccionar una categoría a la vez. <br/> 
+   <br/>
+   <br/>  
+</p>
+<select name="select-location" id="select-location">
+		<option value="-1">Seleccione entidad federativa:</option>
+		<option value="21.8858107,-102.326319">Aguascalientes</option>
+		<option value="30.3867495,-116.0122155">Baja California</option>	
+		<option value="25.8246701,-113.2281432">Baja California Sur</option>
+		<option value="18.9569444,-90.8988701">Campeche</option>	
+		<option value="27.9654695,-101.86507">Coahuila</option>
+		<option value="19.15435,-103.8887321">Colima</option>	
+		<option value="16.5336814,-92.6524106">Chiapas</option>
+		<option value="29.1202449,-106.5178345">Chihuahua</option>	
+		<option value="19.3785885,-99.1754713">CDMX</option>
+		<option value="24.3284332,-104.690297">Durango</option>	
+		<option value="20.905594,-101.3793542">Guanajuato</option>
+		<option value="17.5604293,-99.7074585">Guerrero</option>	
+		<option value="20.4388687,-98.8827749">Hidalgo</option>
+		<option value="20.2773162,-103.9966828">Jalisco</option>	
+		<option value="19.3786163,-99.5431015">Edo. De México</option>
+		<option value="19.4585524,-101.7794257">Michoacán</option>	
+		<option value="18.8340773,-99.1733241">Morelos</option>
+		<option value="21.9515445,-105.307771">Nayarit</option>	
+		<option value="25.9597215,-100.1899016">Nuevo Léon</option>
+		<option value="16.8720454,-96.7915142">Oaxaca</option>	
+		<option value="18.6763497,-98.414053">Puebla</option>
+		<option value="20.851217,-99.9696211">Querétaro</option>	
+		<option value="19.6984408,-87.6561152">Quintana Roo</option>
+		<option value="22.2509038,-100.2073091">San Luis Potosí</option>	
+		<option value="24.8945009,-107.7918585">Sinaloa</option>	
+		<option value="29.7244249,-110.7474707">Sonora</option>
+		<option value="18.2113116,-93.0690636">Tabasco</option>	
+		<option value="23.8735947,-97.5424771">Tamaulipas</option>
+		<option value="19.43112,-98.2387951">Tlaxcala</option>	
+		<option value="20.1115064,-95.678111">Veracruz</option>
+		<option value="20.7616783,-89.0311761">Yucatán</option>	
+		<option value="23.2711534,-102.8124676">Zacatecas</option>
+	</select>
+
+	<div id="panel">
+		<p>Seleccione Organización Delictiva</p>
+		<select id="estilo" onchange="estiloSelect()">
+      <option value="TODOS">Todos</option>
+      <option value="Sin registro" >Sin registro</option>
+      <option value="Sin registro" >Más de 5 cárteles</option>
+      <option value="Sin registro"> De 2 a 4 cárteles</option>
+      <option value="Alianza La Unión-Nuevo Imperio">Alianza La Unión-nuevo Imperio</option>
+      <option value="Banda Charal">Banda Charal</option>
+      <option value="Banda Pamela">Banda Pamela</option>
+      <option value="Árturo Álvarez Pérez">Árturo Álvarez Pérez</option>
+      <option value="Arturo Gress Calva">Arturo Gress Calva</option>
+      <option value="El Chita">El Chita</option>
+      <option value="Julio Tovar Escamilla">Julio Tovar Escamilla</option>
+      <option value="Cártel del Golfo">Cártel del Golfo</option>
+      <option value="Cártel del Golfo-Ciclones">Cártel del Golfo-Ciclones</option>
+      <option value="Cártel del Golfo-Metros (facción aliada a células del Cártel Jalisco Nueva Generación">Cártel del Golfo-Metros (facción aliada a células del Cártel Jalisco Nueva Generación</option>
+      <option value="Cártel del Golfo-Panteras">Cártel del Golfo-Panteras</option>
+      <option value="Cártel del Golfo-Rojos">Cártel del Golfo-Rojos</option>
+      <option value="Cártel del Golfo-Zetas Viejas Escuela">Cártel del Golfo-Zetas Viejas Escuela</option>
+      <option value="Cártel del Golfo (facción Operativa Espartano #1">Cártel del Golfo (facción Operativa Espartano #1)</option>
+      <option value="Cártel del Golfo-Escorpiones">Cártel del Golfo-Escorpiones</option>
+      <option value="Alianza del Golfo (facción del Señor de la P. Grupo Squalo)">Alianza del Golfo (facción del Señor de la P. Grupo Squalo)</option>
+      <option value="Cártel del Golfo-Zetas Vieja Escuela">Cártel del Golfo-Zetas Vieja Escuela</option>
+      <option value="Cártel del Noreste">Cártel del Noreste</option>
+      <option value="Los Caballeros Templarios">Los Caballeros Templarios</option>
+      <option value="Guardia Guerrerense">Guardia Guerrerense</option>
+      <option value="Los Rojas Romero">Los Rojas Romero</option>
+      <option value="Cártel Jalisco Nueva Generación">Cártel Jalisco Nueva Generación</option>
+      <option value="Alianza Cártel Jalisco Nueva Generación-Los Arellano Félix">Alianza Cártel Jalisco Nueva Generación-Los Arellano Félix</option>
+      <option value="Cártel Beltrán Leyva">Cártel Beltrán Leyva</option> 
+      <option value="Cártel de Sinaloa">Cártel de Sinaloa</option>
+      <option value="Cártel de Sinaloa (facción Cártel de los Cabrera Sarabia)">Cártel de Sinaloa (facción Cártel de los Cabrera Sarabia)</option> 
+      <option value="Cártel de Sinaloa (facción Los Menores)">Cártel de Sinaloa (facción Los Menores)</option>
+      <option value="Cártel de Sinaloa (facción Mayo Zambada)">Cártel de Sinaloa (facción Mayo Zambada)</option> 
+      <option value="Cártel de Sinaloa (facciones aliadas a Los Menores y al Mayo Zambada)">Cártel de Sinaloa (facciones aliadas a Los Menores y al Mayo Zambada)</option>
+      <option value="Cártel de Sinaloa-Los Cazadores (aliados de Los Menores)">Cártel de Sinaloa-Los Cazadores (aliados de Los Menores)</option> 
+      <option value="Cártel de Sinaloa-Los Gigios (aliados del Mayo Zambada)">Cártel de Sinaloa-Los Gigios (aliados del Mayo Zambada)</option>
+      <option value="Cártel de Sinaloa-Los Salazar (aliados de Los Menores)">Cártel de Sinaloa-Los Salazar (aliados de Los Menores)</option> 
+      <option value="Cártel de Sinaloa-Los Licenciados (aliados del Mayo Zambada)">Cártel de Sinaloa-Los Licenciados (aliados del Mayo Zambada)</option>
+      <option value="Cártel de Sinaloa-Los Tintori (aliados de Los Menores)">Cártel de Sinaloa-Los Tintori (aliados de Los Menores)</option> 
+      <option value="Cártel de Sinaloa-Los Pipen (aliados del Mayo Zambada)">Cártel de Sinaloa-Los Pipen (aliados del Mayo Zambada)</option>
+      <option value="Cártel de Sinaloa (facción Gente Nueva Salazar)">Cártel de Sinaloa (facción Gente Nueva Salazar)</option> 
+      <option value="Alianza La Oficina-Cártel de Sinaloa (Cárteles Unidos)">Alianza La Oficina-Cártel de Sinaloa (Cárteles Unidos)</option>
+      <option value="La Unión Tepito">La Unión Tepito</option> 
+      <option value="Fuerza Anti Unión">Fuerza Anti Unión</option>
+      <option value="Ronda 88">Ronda 88</option> 
+      <option value="Cártel de la Sierra">Cártel de la Sierra</option>
+      <option value="Los Jefes">Los Jefes</option> 
+      <option value="Cártel de los Arellano Félix">Cártel de los Arellano Félix</option>
+      <option value="Cártel de los Zetas">Cártel de los Zetas</option> 
+      <option value="Cártel de los Zetas (facción 35-Z">Cártel de los Zetas (facción 35-Z)</option>
+      <option value="Sangre Nueva Zeta">Sangre Nueva Zeta</option> 
+      <option value="Zetas Vieja Escuela">Zetas Vieja Escuela</option>
+      <option value="Cártel de Sinaloa (facción Cártel de los Cabrebra Sarabia)">Cártel de Sinaloa (facción Cártel de los Cabrebra Sarabia)</option> 
+      <option value="Cártel Independiente de la Laguna">Cártel Independiente de la Laguna</option>
+      <option value="Mara Salvatrucha 13">Mara Salvatrucha 13</option> 
+      <option value="Cártel de Tláhuac">Cártel de Tláhuac</option>
+      <option value="Los Rodolfos">Los Rodolfos</option> 
+      <option value="Los Molina">Los Molina</option>
+      <option value="Los Macero">Los Macero</option> 
+      <option value="Los Tanzanios">Los Tanzanios</option>
+      <option value="Güero Fresa">Güero Fresa</option> 
+      <option value="Malcriados 3AD">Malcriados 3AD</option>
+      <option value="Los Maestrin">Los Maestrin</option> 
+      <option value="Alianza Cártel del Golfo-Cártel Jalisco Nueva Generación">Alianza Cártel del Golfo-Cártel Jalisco Nueva Generación</option>
+      <option value="Cártel de San Luis Potosí Nueva Generación">Cártel de San Luis Potosí Nueva Generación</option> 
+      <option value="Cártel Los Alemanes">Cártel Los Alemanes</option>
+      <option value="La Familia Michoacana">La Familia Michoacana</option>
+      <option value="La Línea">La Línea</option>
+      <option value="Los Trinis">Los Trinis</option>
+      <option value="Carrillo Fuentes">Carrillo Fuentes</option>
+      <option value="Los Ántrax">Los Ántrax</option>
+      <option value="Los Mezcales (José Bernabé Brizuela Meraz">Los Mezcales (José Bernabé Brizuela Meraz)</option>
+      <option value="Gente Nueva del Tigre">Gente Nueva del Tigre</option>
+      <option value="Cártel de Tláhuac">Cártel de Tláhuac</option>
+      <option value="El Loco Téllez">El Loco Téllez</option>
+      <option value="El Mamer">El Mamer</option>
+      <option value="Los Rojos">Los Rojos</option>
+      <option value="Guerreros Unidos">Guerreros Unidos</option>
+      <option value="Los Talibanes">Los Talibanes</option>
+      <option value="Cártel Santa Rosa de Lima">Cártel Santa Rosa de Lima</option>
+      <option value="Cártel Unido de la Huasteca">Cártel Unido de la Huasteca</option>
+      <option value="Columna Armada Pedro J.Méndez">Columna Armada Pedro J.Méndez</option>
+      <option value="Grupos comunitarios">Grupos comunitarios</option>
+      <option value="Don José">Don José</option>
+      <option value="El América">El América</option>
+      <option value="El Hijin">El Hijin</option>
+      <option value="El Talaches">El Talaches</option>
+      <option value="El Gabo">El Gabo</option>
+      <option value="El Ardilla">El Ardilla</option>
+      <option value="Don Lupe">Don Lupe</option>
+      <option value="Erick Estrada Hernández">Erick Estrada Hernández</option>
+      <option value="El Marino">El Marino</option>
+      <option value="El Jes y/o el Sierra">El Jes y/o el Sierra</option>
+      <option value="Bigotes Blancos">Bigotes Blancos</option>
+      <option value="Gema Rosas Fernández">Gema Rosas Fernández</option>
+      <option value="El Estaca">El Estaca</option>
+      <option value="Gente Nueva Salazar">Gente Nueva Salazar</option>
+      <option value="Granados">Granados</option>
+      <option value="El Abuelo">El Abuelo</option>
+      <option value="Los Ardillos">Los Ardillos</option>
+      <option value="Los Jefes">Los Jefes</option>
+      <option value="Los Chehuis">Los Chehuis</option>
+      <option value="Los Terán">Los Terán</option>
+      <option value="Los Durango">Los Durango</option>
+      <option value="La Unión de León">La Unión de León</option>
+      <option value="Nueva Plaza">Nueva Plaza</option>
+      <option value="Los Granados">Los Granados</option>
+      <option value="Los Hades">Los Hades</option>
+      <option value="JJ">JJ</option>
+      <option value="Los Sierra">Los Sierra</option>
+      <option value="Los Téllez">Los Téllez</option>
+      <option value="Los Viagras">Los Viagras</option>
+      <option value="Los Viagras-Sangre Nueva Guerrerense">Los Viagras-Sangre Nueva Guerrerense</option>
+      <option value="Los Yglesias">Los Yglesias</option>
+      <option value="Cártel de Juárez (facción La Línea)">Cártel de Juárez (facción La Línea)</option>
+      <option value="Pura Gente Nueva">Pura Gente Nueva</option>		  
+		</select>
+     </div>
+	</div>
+
+
+	<div id="map"></div>
+
+	<style>
+		.leaflet-popup-content-wrapper,
+			.leaflet-popup-tip {
+			color: white;
+			padding: 10px;
+      font-size: medium;
+			background: #333;
+			box-shadow: 0 3px 14px #000;
+		}  
+	</style>
+
+</section>
+
+<!-- Sección 3: Análisis de datos -->
+
+<section id="Analisis"> 
+    <div class="container">
+        
+		<h3 class="cabeza-seccion">Análisis de Organizaciones Delictivas<br/></h3>
+        <p> <b>
+          México, el país de los cárteles. El 40% de los estados del país tienen todo su territorio dividido entre uno o varios grupos del crimen organizado. 
+          </b><br/>
+          <br/>
+          De los 2 mil 471 municipios que hay en México, en mil 198 se enlista, por lo menos, el nombre de un cártel, banda criminal o célula delictiva, 
+          de acuerdo con el análisis hecho a más de 50 documentos de inteligencia militar extraídos del hackeo que realizó el grupo Guacamaya.<br />
+          <br />
+          Si tomamos en cuenta los kilómetros cuadrados que ocupan cada una de estas regiones, los datos revelan que en el 75% del territorio mexicano 
+          se tiene registrada la presencia de algún grupo delictivo.<br /> 
+          <br />
+          Se encontraron casi una decena de alianzas, tanto entre cárteles como con bandas delictivas de la zona, repartidas en más de 54 municipios 
+          del país, una de las principales es la que se creó entre el Cártel del Golfo y el Cártel Jalisco Nueva Generación (CJNG), los cuales han sido 
+          ubicados en 25 de los 58 municipios que conforman Zacatecas, uno de los estados que actualmente tiene la tasa más alta de desapariciones en México. 
+          Incluso se tiene el registro de que el Cártel del Pacífico trabaja en conjunto con cinco bandas locales en Sonora, según los reportes de la 
+          Secretaría de la Defensa Nacional (Sedena) entre 2017 y 2022. 
+          <br /> 
+          <br />
+          Además, los documentos de inteligencia señalan a 40 grupos, células o bandas delictivas que sin necesidad de tener ninguna alianza lograron tener 
+          presencia, y ser los únicos, en más de 700 municipios del país. El principal es el CJNG, grupo que aparece en 20% del territorio mexicano, pero en 
+          297 regiones de las más de 400 donde se tiene registro de sus actividades no es aliado de ningún otro grupo y está catalogado como el único en la zona.
+          <br />
+          El gobierno federal tiene identificado al CJNG como el factor clave del alza en la violencia en diferentes zonas del país, una de ellas es Quintana Roo, 
+          en donde desde 2020 se vio un incremento notable en el delito del narcomenudeo. Lo mismo ocurre desde hace dos años en algunas zonas de San Luis Potosí, 
+          como en Matehuala y Soledad Graciano, en donde han llegado a querer “despojar del control a las organizaciones delictivas que históricamente habían mantenido 
+          una hegemonía, como son: Cártel del Golfo, Zetas-Vieja Escuela y Cártel del Noreste (CDN)”, según los documentos revelados.
+          <br />
+          <br />
+          De los 32 estados que conforman el mapa de México, solo hay 18 que tienen alguna parte de su territorio “libre”, es decir sin presencia de ningún grupo delincuencial, 
+          pero el resto muestra una división por completo de sus regiones. En Sonora, San Luis Potosí, Michoacán, Tamaulipas y Chihuahua, alrededor del 60% de sus municipios 
+          registra más de un grupo dedicado a la actividad criminal en la misma zona. Uno de los mejores ejemplos es Ciudad Valles, en San Luis Potosí, en donde los reportes de 
+          Sedena tienen reportada la presencia de alrededor cinco grupos delincuenciales.<br />
+          <br />
+          A pesar de la expansión del CJNG, el Cártel de Sinaloa (que la autoridad lo identifica como Cártel del Pacífico) sigue en la lista de los más dominantes en México. 
+          Su nombre aparece en más de 200 municipios del país, y de estos, en 40%, principalmente en Chihuahua y Durango, no hay ningún otro grupo criminal que esté identificado en la zona.<br />
+          <br />
+          La única alianza que tiene documentada la Sedena es con el grupo La Oficina, en conjunto se denominan “Cárteles Unidos”, y tienen presencia en siete de los 11 municipios de Aguascalientes.<br />
+          <br />
+          El análisis de este material de inteligencia militar muestra un país en el que convergen más de 80 grupos delictivos y 16 bandas delictivas y en donde las alianzas le han dado mayor poderío 
+          a ciertos grupos del crimen organizado, pero donde, al mismo tiempo, cada cártel sigue peleando por dominar más territorio.  
+        </p>  
+        </div>
+    </div>
+	</div>
+</section>
+
+<!-- Sección 4: Metodología -->
+
+    <section id="Metodologia">
+        <div class="container">
+            
+			<h3 class="cabeza-seccion">Metodología<br/></h3>
+            <ul>
+                <li> ✤ El equipo de Periodismo de Investigación y Datos de El Universal solicitó acceso a los miles de correos 
+                        electrónicos hackeados a la Secretaría de la Defensa Nacional(Sedena) por parte del autodenominado grupo 
+                        "Guacamaya".</li>
+                <li> ✤ Durante semanas se realizó una búsqueda de archivos en estos correos electrónicos para conocer con qué 
+                        información de mapeo y diagnóstico cuenta la Defensa Nacional y aparece en esta base de datos. <br/> 
+                        Se utilizaron decenas de combinaciones de palabras y se siguieron más de 30 cuentas de correos electrónicos. 
+                        Entre las palabras clave que se buscaron, fueron: "diagnóstico delictivo", "crimen organizado", "análisis regional",  
+                        "cártel de [...]", "análisis delictivo","panorama delictivo", “mapa”, entre muchas otras.</li>         
+                <li> ✤ Más tarde se descargaron y revisaron todos los reportes realizados por los militares, algunos más complejos 
+                        y detallados que otros; unos hechos de una forma muy básica, otros con un claro trabajo de inteligencia 
+                        militar que incluía trabajo de campo e intercepción de comunicaciones.</li>                       
+                <li> ✤ Se descartaron mapas o reportes totalmente desfasados, con poca claridad en sus contenidos, e incluso con información que se consideró poco fiable. </li>
+                <li> ✤ La mayoría de las informaciones obtenidas pertenecen a esta administración federal, es decir, de 2019 a 2022,  
+                        sin embargo, también hay datos desde 2017. Aunque como criterio se privilegió el uso de los mapas más actualizados, 
+                        hay algunos que son incluso del gobierno anterior. Aún así consideramos que era importante agregarlos porque el 
+                        gobierno mexicano se ha negado a entregar esta información vía transparencia oficial, es decir, hay muy pocos 
+                        datos públicos con estos contenidos.</li>                        
+                <li> ✤ Después de una exhaustiva revisión se construyó un dataset, un bloque de datos que incluye casi 3 mil celdas 
+                        con las siguientes variables: municipio y estado (con caracteres y geoclaves), grupo o grupos delictivos con presencia 
+                        espacial, fecha de registro (mes-año), y una columna para comentar sobre cada información.</li> 
+                <li> ✤ En un proceso de verificación, compañeras del equipo ajenas al llenado de la base de datos de origen, 
+                        leyeron los panoramas y diagnósticos delictivos e hicieron precisiones que consideraron importantes: 
+                        se actualizó nueva información sobre la distribución territorial de cada cártel, se homologaron nombres y 
+                        corrigió información que en algunos mapeos de la Sedena no se mostraban con claridad.</li> 
+                <li> ✤ Por último se analizó la base final y se geoprocesó. Haciendo uso de software libre se elaboró un mapa dinámico, 
+                        produciendo así un nuevo mapeo del crimen organizado en México.</li>
+                <li>
+					    Nota 1: este mapa ya había tenido una edición impresa, estática, publicada el domingo 23 de octubre del 2022, pero nos dimos cuenta de que para que fuera más útil a la población era necesario 
+					    generar una versión virtual que apuntara con precisión cuál es la presencia de los grupos delictivos mexicanos en cada uno de los 2 mil 471 municipios mexicanos.
+				        </li>
+				        <li>
+              Nota 2: es importante subrayar que la información aquí vertida es totalmente militar mexicana, y lo que hizo este equipo de periodismo es procesarla, ordenarla y darle un enfoque periodístico.</li>
+                            
+            </ul>
+        </div>
+    </section>
+
+<!-- Sección 5: Creditos -->	
+
+<section id="creditos">
+	<div class="container">
+	<ul class="container creditos">
+	<li><strong>Texto:</strong><br/>Samuel Aguilar, Daniela Guazo, Silber Meza</li>
+		<li><strong>Edición:</strong><br/>Daniela Guazo y Silber Meza</li>
+		<li><strong>Análisis de datos y Desarrollo Web</strong><br/>Samuel Aguilar y Miguel Ángel Garnica</li>
+	</ul>
+</div>
+
+</section>
+
+	
+	<!-- Footer Area Start -->
+<footer class="footer-area">
+  <div class="container">
+    
+        <!-- Footer Social Info -->
+        <div class="footer-social-info d-flex align-items-center justify-content-between" style="text-align: center;"> 
+			<a href="https://www.facebook.com/share.php?u=https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/&title=Mapa del Crimen Organizado" onClick="window.open(this.href, this.target, 'width=500,height=400, scrollbars=1'); return false;"><i class="fa fa-facebook"></i><span>Facebook</span></a> 
+			<a href="https://twitter.com/intent/tweet?text= Mapa del Crimen Organizado%20&url=https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/" onClick="window.open(this.href, this.target, 'width=500,height=400, scrollbars=1'); return false;"><i class="fa fa-twitter"></i><span>Twitter</span></a> 
+			<a href="whatsapp://send?text=Mira este contenido de EL UNIVERSAL%20https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a> 
+			<a href="mailto:a-quien-se-lo-recomiendas@ejemplo.com?subject=Mapa del Crimen Organizado: Recomendación&body=¡Hola! Te recomiendo la siguiente información que publica EL UNIVERSAL  https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/"><i class="fa fa-envelope"></i><span>E-mail</span></a> 
+			<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.eluniversal.com.mx/interactivos/2023/mapa-crimen-organizado/"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a> 
+			<a href="https://www.youtube.com/ElUniversalMex" target="_blank"><i class="fa fa-youtube-play"></i><span>Youtube</span></a> 
+		  </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="copywrite-text">
+          <p><!-- Link back to El Universal can't be removed. --> 
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> EL UNIVERSAL | CPN |<br class="hidden"> <a class="Medium" href="https://www.eluniversal.com.mx/" target="_blank">EL UNIVERSAL</a> 
+            <!-- Link back to El Universal can't be removed. --></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Footer --> 
+	
+<!-- scripting and src -->
+
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   		crossorigin=""></script> 
+  <script src="Leaflet-MiniMap-master/dist/Control.MiniMap.min.js"></script> 
+	<script src="layers/municipios.js"></script>  
+	<script src="layers/estados.js"></script>     
+	<script src="leaflet-search-master\src\leaflet-search.js"></script>		
+	<script src="mapa.js"></script>
+	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>	
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	
+<!-- Función script Adobe --> 
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+_satellite.pageBottom();
+//--><!]]>
+</script> 
+<!-- Termina Función script Adobe -->
+	<!-- Begin amp post message-->
+<script type="text/javascript">
+(function(){
+    var ampPostMessage = {
+        ready: function () {
+            jQuery(document).ready(function() {
+                setTimeout(function(){
+                    ampPostMessage.send();
+                }, 5000);
+                console.log("Page ready!!!");
+            })
+        },
+        load: function () {
+            jQuery(window).load(function(){
+                ampPostMessage.send();
+                console.log('Page loaded!!');
+            })
+        },
+        send: function () {
+            window.parent.postMessage({
+                    sentinel: 'amp',
+                    type: 'embed-size',
+                    height: document.body.scrollHeight
+            }, '*');
+            console.log('PostMessage pushed');
+            console.log(document.body.scrollHeight);
+        },
+        push: function() {
+            stopAmpInterval++;
+            console.log(stopAmpInterval);
+            if (stopAmpInterval >= 5) {
+                clearInterval(ampInterval);
+            }
+            else{
+                ampPostMessage.send();
+            }
+        }
+    }
+    var stopAmpInterval = 0;
+    var ampInterval = setInterval(function(){ampPostMessage.push();}, 5000);
+    ampPostMessage.load();
+    ampPostMessage.ready();
+})();
+</script>
+<!-- End amp post message-->
+</body>
+</html>

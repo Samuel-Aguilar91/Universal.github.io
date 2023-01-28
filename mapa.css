@@ -1,0 +1,325 @@
+/* :: 1.0 Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+a {text-decoration: none;}
+.container{
+	margin: 0 auto;
+	max-width: 1000px;
+}
+.bg-black{background-color: #000000;}
+.img-responsive {
+	width: 100%;
+	height: auto;
+} 
+.logo-top{
+	max-width: 250px;
+}
+#map{
+    height: 92vh;
+    width: 100%;
+}
+.leaflet-bar a { background-color: #fff; border-bottom: 1px solid #ccc; color: #444; display: block; height: 26px; width: 26px; line-height: 1.45 !important; text-align: center; text-decoration: none; font: bold 18px 'Lucida Console', Monaco, monospace; }
+#Mapa{padding: 100px 0;}
+#Mapa p{color: #e1e1e1; font-size: 15px; margin: 15px 0 7px;}
+.leaflet-safari .leaflet-tile-container {
+	width: 100%!important;
+	}
+.cabeza-seccion{color: #FFFFFF; font-size: 2em; margin: 10px 0 30px;}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+html{
+    scroll-behavior: smooth;
+}
+.footer-social-info a{margin-left: 22px;}
+.footer-social-info a span{color: #FFFFFF; font-size: 13px;}
+.sect {
+  width: 100%;
+  min-height: 500px;
+}
+
+body{
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+}
+#creditos{width: 100%; padding: 40px 30px 20px; background-color: #bbbbbb; border-top: 3px solid #303030;}
+.creditos li{text-align: center; display: block; padding: 12px 20px;}
+header h1{ display: block; width: 50%; float: left; margin: 15px 0 10px 0;}
+h1 a img{ float: left; margin-left: 25px;}
+.intro h1{font-size: 3.3em;}
+  h2{ font-size: 2.5em;}
+  h3{ font-size: 2.8em;}
+  h4{ font-size: 2.8em;}
+  p{ font-size: 1.11em; line-height: 1.6em; font-weight: 300;}
+  ul{ list-style: none;}
+  li{ font-size: 1em;}
+#Inicio{background-image: url("img/portada.jpg"); background-size: cover; background-position: top center; height: 100vh; float: left; width: 100%;}
+  .content{
+    font-family: 'Work Sans';
+    color: #FFFFFF;
+    margin-top: 35%;
+    margin-left: 100px;
+	width: 84%;
+}
+
+.btns{
+    margin-top: 20px;
+    background: #d8d8d8;
+    cursor:pointer;
+    color: #191919;
+    padding: 12px 20px;
+    float: left;
+    border: 0;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.btns:hover{
+    background:#0058a2;
+	color: #FFFFFF;
+}
+
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+  }
+  
+  header {
+    width: 100%;
+    padding: 0;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+    color: white;
+    text-align: center;
+    background: white;
+	  border-bottom: 2px solid #333333;
+  }
+  
+  nav ul {
+    background: #FFFFFF;
+    list-style: none;
+    overflow: hidden;
+  }
+  
+  ul li {
+    display: inline-block;
+    padding: 20px 0 15px 0;
+    transition: all ease-in-out 250ms;
+  }
+  
+  ul li a{
+    color: #0058a2;
+    text-decoration: none;
+	padding: 15px;
+  }
+    ul li a:hover {
+    background: #0058a2;
+	color: #FFFFFF!important;
+  }
+  .hide {
+    padding: 16px;
+    font-size: 14px;
+	  text-align: right;
+    color: #004C8C;
+    cursor: pointer;
+    display: none;
+	  float: right;
+	  width: 40%;
+  }
+  
+  @media (max-width: 768px) {
+    ul li {
+      width: 100%;
+      padding: 15px;
+      text-align: right;
+    }
+  
+    .hide {
+      display: block;
+    }
+  
+    nav ul {
+    display: none;
+  
+    }
+  .content{
+    margin-top: 45%;
+    margin-left: 30px;
+	  width: 80%;
+}
+  }
+
+  #sect1 {
+    position: relative;
+    overflow: hidden;
+  }
+
+  video {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  @media (min-aspect-ratio: 16/9){
+    .video{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  #Analisis{
+    background-color: rgb(30,30,30);
+    color: white;
+}
+
+#Analisis .container{
+    padding: 150px 12px;
+}
+
+#Analisis h2{
+    margin-top: 0;
+    font-size: 2.8em;
+}
+
+#Analisis p{
+    display: none;
+}
+
+#Analisis .carta{
+    background-position: center center;
+    background-size: cover;
+    padding: 50px 0px;
+    margin: 30px;
+    border-radius: 15px;
+}
+#Analisis .programas{
+    display: flex;
+    justify-content: center;
+}
+
+#Analisis p{
+    display: block;
+    margin-bottom: 30px;
+}
+
+#Analisis h2{
+    font-size: 2.8em;
+}
+
+#Analisis h3{
+    margin-top: 0;
+}
+
+#Analisis .carta{
+    padding: 50px;
+    background-size: 100% 150px;
+    background-repeat: no-repeat;
+    background-position-y: 0;
+    background-color: rgba(50, 50, 50, 1);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+#Metodologia .container{
+    padding: 100px 12px;
+}
+
+#Metodologia li{
+    margin: 7px 0px;
+    color: #e1e1e1;
+}
+
+#Metodologia h4{
+    margin: 16px 0px;
+    font-weight: bold;
+    color: antiquewhite;
+}
+
+#Metodologia{
+	background-color: #333333;
+}
+
+
+#Metodologia ul{
+    margin-left: 100px;
+}
+
+span {
+  content: "\00BB";
+  color: #0069a2;
+}
+
+
+/* :: 9.0 Footer Area CSS */
+.footer-area {
+    position: relative;
+    z-index: 1;
+    background-color: #101010;
+}
+.footer-area .footer-social-info {
+    position: relative;
+    z-index: 1;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-area .footer-social-info a {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #a6a6a6;
+}
+.footer-area .footer-social-info a span {
+    margin-left: 10px;
+}
+@media only screen and (max-width: 767px) {
+    .footer-area .footer-social-info a span {
+        display: none;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .footer-area .footer-social-info a span {
+        display: none;
+    }
+}
+.footer-area .footer-social-info a:hover, .footer-area .footer-social-info a:focus {
+    color: #ffffff;
+}
+.footer-area .copywrite-text {
+    position: relative;
+    z-index: 1;
+    padding: 15px 0;
+    text-align: center;
+}
+.footer-area .copywrite-text p {
+    font-size: 14px;
+    color: #E1E1E1;
+    margin-bottom: 0;
+}
+@media only screen and (max-width: 767px) {
+    .footer-area .copywrite-text p {
+        font-size: 12px;
+    }
+}
+.footer-area .copywrite-text p a {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 400;
+}
+.footer-area .copywrite-text p a:hover, .footer-area .copywrite-text p a:focus {
+    color: #d1bb95;
+}
+@media only screen and (max-width: 767px) {
+    .footer-area .copywrite-text p a {
+        font-size: 12px;
+    }
+	.intro h1 {
+    font-size: 2.4em;
+}
+}
